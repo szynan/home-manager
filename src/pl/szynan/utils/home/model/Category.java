@@ -10,7 +10,7 @@ public class Category {
 	private final StringProperty name;
 	private final IntegerProperty id;
 
-	public Category(String name, int id) {
+	public Category(final String name, final int id) {
 		this.name = new SimpleStringProperty(name);
 		this.id = new SimpleIntegerProperty(id);
 	}
@@ -19,7 +19,7 @@ public class Category {
 		return name;
 	}
 
-	public void setName(String name) {
+	public void setName(final String name) {
 		this.name.set(name);
 	}
 
@@ -31,7 +31,7 @@ public class Category {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(final int id) {
 		this.id.set(id);
 	}
 

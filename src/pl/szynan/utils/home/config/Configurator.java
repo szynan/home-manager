@@ -5,24 +5,26 @@ import java.util.Properties;
 
 public class Configurator {
 
+	private static final String LOCALE_PROPERTY = "locale";
+
 	private final String configurationPath;
 
-	public Configurator(String path) {
+	public Configurator(final String path) {
 		configurationPath = path;
 	}
 
 	public void configure() {
 		// create and load default properties
-		Properties defaultProps = new Properties();
+		final Properties defaultProps = new Properties();
 		try (InputStream in = getClass().getResourceAsStream(configurationPath)) {
 			defaultProps.load(in);
-			String locale = defaultProps.getProperty("locale");
+			final String locale = defaultProps.getProperty(LOCALE_PROPERTY);
 			try (InputStream inl = getClass().getResourceAsStream(locale)) {
-				Properties localeProps = new Properties();
+				final Properties localeProps = new Properties();
 				localeProps.load(inl);
 				Locale.load(localeProps);
 			}
-		} catch (Exception e) {
+		} catch (final Exception e) {
 			e.printStackTrace();
 			System.exit(-1);
 		}

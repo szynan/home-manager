@@ -16,7 +16,7 @@ public class Entity {
 	private final IntegerProperty priority;
 	private final StringProperty info;
 
-	public Entity(String name, int id) {
+	public Entity(final String name, final int id) {
 		this.name = new SimpleStringProperty(name);
 		this.id = new SimpleIntegerProperty(id);
 		this.categories = new LinkedList<Category>();

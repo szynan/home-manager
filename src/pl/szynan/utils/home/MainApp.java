@@ -19,7 +19,7 @@ public class MainApp extends Application {
 	private Stage primaryStage;
 	private BorderPane rootLayout;
 
-	private ObservableList<Category> categories = FXCollections.observableArrayList();
+	private final ObservableList<Category> categories = FXCollections.observableArrayList();
 
 	static {
 		new Configurator("Configuration.properties").configure();
@@ -29,7 +29,7 @@ public class MainApp extends Application {
 	}
 
 	@Override
-	public void start(Stage primaryStage) {
+	public void start(final Stage primaryStage) {
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("Home Manager");
 		initRootLayout();
@@ -38,29 +38,29 @@ public class MainApp extends Application {
 
 	public void initRootLayout() {
 		try {
-			FXMLLoader loader = new FXMLLoader();
+			final FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("gui/RootLayout.fxml"));
 			rootLayout = (BorderPane) loader.load();
 
-			Scene scene = new Scene(rootLayout);
+			final Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			e.printStackTrace();
 		}
 	}
 
 	public void showThingsToBuy() {
 		try {
-			FXMLLoader loader = new FXMLLoader();
+			final FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(MainApp.class.getResource("gui/ThingsToBuy.fxml"));
-			AnchorPane thingsToBuy = (AnchorPane) loader.load();
+			final AnchorPane thingsToBuy = (AnchorPane) loader.load();
 
 			rootLayout.setCenter(thingsToBuy);
 
-			ThingsToBuyController controller = loader.getController();
+			final ThingsToBuyController controller = loader.getController();
 			controller.setMainApp(this);
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			e.printStackTrace();
 		}
 	}
@@ -73,7 +73,7 @@ public class MainApp extends Application {
 		return categories;
 	}
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		launch(args);
 	}
 }
