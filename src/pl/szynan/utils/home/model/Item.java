@@ -6,5 +6,5 @@ public class Item extends Entity {
 		super(name, id);
 		// TODO Auto-generated constructor stub
 	}
-	
+
 }
